@@ -1,0 +1,17 @@
+133 INFO: PyInstaller: 6.19.0, contrib hooks: 2026.3
+134 INFO: Python: 3.11.0rc1
+135 INFO: Platform: Linux-6.1.102-x86_64-with-glibc2.35
+135 INFO: Python environment: /usr
+136 INFO: wrote /home/ubuntu/worood_alhub/WoroodAlHub.spec
+138 INFO: Module search paths (PYTHONPATH):
+['/usr/lib/python311.zip',
+ '/usr/lib/python3.11',
+ '/usr/lib/python3.11/lib-dynload',
+ '/usr/local/lib/python3.11/dist-packages',
+ '/usr/lib/python3/dist-packages',
+ '/home/ubuntu/worood_alhub']
+422 INFO: Appending 'datas' from .spec
+422 INFO: checking Analysis
+423 INFO: Building Analysis because Analysis-00.toc is non existent
+423 INFO: Looking for Python shared library...
+ERROR: ERROR: Python shared library ('libpython3.11.so.1.0') was not found! If you are using system python on Debian/Ubuntu, you might need to install a separate package by running `apt install libpython3.11`.

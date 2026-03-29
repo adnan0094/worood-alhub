@@ -1,0 +1,83 @@
+96 INFO: PyInstaller: 6.19.0, contrib hooks: 2026.3
+96 INFO: Python: 3.11.0rc1
+98 INFO: Platform: Linux-6.1.102-x86_64-with-glibc2.35
+98 INFO: Python environment: /usr
+98 INFO: wrote /home/ubuntu/worood_alhub/WoroodAlHub.spec
+99 INFO: Module search paths (PYTHONPATH):
+['/usr/lib/python311.zip',
+ '/usr/lib/python3.11',
+ '/usr/lib/python3.11/lib-dynload',
+ '/usr/local/lib/python3.11/dist-packages',
+ '/usr/lib/python3/dist-packages',
+ '/home/ubuntu/worood_alhub']
+416 INFO: Appending 'datas' from .spec
+416 INFO: checking Analysis
+416 INFO: Building Analysis because Analysis-00.toc is non existent
+416 INFO: Looking for Python shared library...
+428 INFO: Using Python shared library: /lib/x86_64-linux-gnu/libpython3.11.so.1.0
+428 INFO: Running Analysis Analysis-00.toc
+428 INFO: Target bytecode optimization level: 0
+428 INFO: Initializing module dependency graph...
+428 INFO: Initializing module graph hook caches...
+439 INFO: Analyzing modules for base_library.zip ...
+1028 INFO: Processing standard module hook 'hook-heapq.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+1116 INFO: Processing standard module hook 'hook-encodings.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+2363 INFO: Processing standard module hook 'hook-pickle.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+3349 INFO: Caching module dependency graph...
+3375 INFO: Analyzing /home/ubuntu/worood_alhub/main.py
+3399 INFO: Processing pre-find-module-path hook 'hook-tkinter.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks/pre_find_module_path'
+3401 INFO: TclTkInfo: initializing cached Tcl/Tk info...
+3465 WARNING: TclTkInfo: Tcl module directory '/usr/share/tcltk/tcl8' does not exist!
+3556 INFO: Processing standard module hook 'hook-_tkinter.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+3623 INFO: Processing standard module hook 'hook-urllib3.py' from '/usr/local/lib/python3.11/dist-packages/_pyinstaller_hooks_contrib/stdhooks'
+3739 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks/pre_safe_import_module'
+3741 INFO: SetuptoolsInfo: initializing cached setuptools info...
+4360 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+4427 INFO: Processing standard module hook 'hook-xml.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+4626 INFO: Processing standard module hook 'hook-_ctypes.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+5430 INFO: Processing standard module hook 'hook-charset_normalizer.py' from '/usr/local/lib/python3.11/dist-packages/_pyinstaller_hooks_contrib/stdhooks'
+5503 INFO: Processing standard module hook 'hook-cryptography.py' from '/usr/local/lib/python3.11/dist-packages/_pyinstaller_hooks_contrib/stdhooks'
+6043 INFO: hook-cryptography: cryptography does not seem to be using dynamically linked OpenSSL.
+6253 INFO: Processing standard module hook 'hook-certifi.py' from '/usr/local/lib/python3.11/dist-packages/_pyinstaller_hooks_contrib/stdhooks'
+6310 INFO: Processing standard module hook 'hook-PIL.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+6367 INFO: Processing standard module hook 'hook-PIL.Image.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+6522 INFO: Processing standard module hook 'hook-numpy.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+6857 INFO: Processing standard module hook 'hook-difflib.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+7152 INFO: Processing standard module hook 'hook-sysconfig.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+7208 INFO: Processing standard module hook 'hook-platform.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+8613 INFO: Processing standard module hook 'hook-xml.etree.cElementTree.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+8665 INFO: Processing standard module hook 'hook-xml.dom.domreg.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+8935 INFO: Processing standard module hook 'hook-PIL.ImageFilter.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+9158 INFO: Processing pre-safe-import-module hook 'hook-packaging.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks/pre_safe_import_module'
+9173 INFO: Processing standard module hook 'hook-cv2.py' from '/usr/local/lib/python3.11/dist-packages/_pyinstaller_hooks_contrib/stdhooks'
+9591 INFO: Processing module hooks (post-graph stage)...
+9819 INFO: Processing standard module hook 'hook-PIL.SpiderImagePlugin.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+9845 INFO: Processing standard module hook 'hook-_tkinter.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks'
+9866 INFO: Performing binary vs. data reclassification (352 entries)
+10009 INFO: Looking for ctypes DLLs
+10038 INFO: Analyzing run-time hooks ...
+10041 INFO: Including run-time hook 'pyi_rth_inspect.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks/rthooks'
+10043 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks/rthooks'
+10044 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks/rthooks'
+10045 INFO: Including run-time hook 'pyi_rth_cryptography_openssl.py' from '/usr/local/lib/python3.11/dist-packages/_pyinstaller_hooks_contrib/rthooks'
+10045 INFO: Including run-time hook 'pyi_rth__tkinter.py' from '/usr/local/lib/python3.11/dist-packages/PyInstaller/hooks/rthooks'
+10057 INFO: Creating base_library.zip...
+10070 INFO: Looking for dynamic libraries
+11270 INFO: Warnings written to /home/ubuntu/worood_alhub/build/WoroodAlHub/warn-WoroodAlHub.txt
+11297 INFO: Graph cross-reference written to /home/ubuntu/worood_alhub/build/WoroodAlHub/xref-WoroodAlHub.html
+11313 INFO: checking PYZ
+11313 INFO: Building PYZ because PYZ-00.toc is non existent
+11313 INFO: Building PYZ (ZlibArchive) /home/ubuntu/worood_alhub/build/WoroodAlHub/PYZ-00.pyz
+11849 INFO: Building PYZ (ZlibArchive) /home/ubuntu/worood_alhub/build/WoroodAlHub/PYZ-00.pyz completed successfully.
+11866 INFO: checking PKG
+11866 INFO: Building PKG because PKG-00.toc is non existent
+11866 INFO: Building PKG (CArchive) WoroodAlHub.pkg
+45750 INFO: Building PKG (CArchive) WoroodAlHub.pkg completed successfully.
+45755 INFO: Bootloader /usr/local/lib/python3.11/dist-packages/PyInstaller/bootloader/Linux-64bit-intel/run
+45755 INFO: checking EXE
+45755 INFO: Building EXE because EXE-00.toc is non existent
+45755 INFO: Building EXE from EXE-00.toc
+45755 INFO: Copying bootloader EXE to /home/ubuntu/worood_alhub/dist/WoroodAlHub
+45756 INFO: Appending PKG archive to custom ELF section in EXE
+46125 INFO: Building EXE from EXE-00.toc completed successfully.
+46129 INFO: Build complete! The results are available in: /home/ubuntu/worood_alhub/dist

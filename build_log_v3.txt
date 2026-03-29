@@ -1,0 +1,18 @@
+106 INFO: PyInstaller: 6.19.0, contrib hooks: 2026.3
+107 INFO: Python: 3.11.0rc1
+108 INFO: Platform: Linux-6.1.102-x86_64-with-glibc2.35
+108 INFO: Python environment: /usr
+108 INFO: wrote /home/ubuntu/worood_alhub/WoroodAlHub.spec
+110 INFO: Module search paths (PYTHONPATH):
+['/usr/lib/python311.zip',
+ '/usr/lib/python3.11',
+ '/usr/lib/python3.11/lib-dynload',
+ '/usr/local/lib/python3.11/dist-packages',
+ '/usr/lib/python3/dist-packages',
+ '/home/ubuntu/worood_alhub']
+454 INFO: Appending 'datas' from .spec
+454 INFO: checking Analysis
+470 INFO: checking PYZ
+489 INFO: checking PKG
+489 INFO: Building PKG because PKG-00.toc is non existent
+489 INFO: Building PKG (CArchive) WoroodAlHub.pkg
